@@ -150,7 +150,7 @@ class MovieDetailsScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 16),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
                               formatReleaseDate(
@@ -158,7 +158,6 @@ class MovieDetailsScreen extends ConsumerWidget {
                                     DateTime.now().toString(),
                               ),
                               style: Theme.of(context).textTheme.bodyMedium,
-                              textAlign: TextAlign.left,
                             ),
                           ],
                         ),

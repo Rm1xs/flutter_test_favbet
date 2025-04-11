@@ -9,6 +9,7 @@ import 'package:loading_indicator/loading_indicator.dart';
 import '../../../../core/errors/remote_exception.dart';
 import '../../../../core/providers/theme_notifier.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../favorites/presentation/providers/favorites_provider.dart';
 import '../providers/movie_provider.dart';
 import '../widgets/pagination_widget.dart';
 
@@ -49,6 +50,7 @@ class _MovieListScreenState extends ConsumerState<MovieListScreen> {
     final moviesState = ref.watch(topRatedMoviesProvider);
     final moviesNotifier = ref.read(topRatedMoviesProvider.notifier);
     final isDarkTheme = ref.watch(themeProvider);
+    final favorites = ref.watch(favoritesProvider);
 
     ref.listen(topRatedMoviesProvider, (previous, next) {
       if (next.isLoading == false &&
@@ -129,12 +131,16 @@ class _MovieListScreenState extends ConsumerState<MovieListScreen> {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              childAspectRatio: 0.58,
-                              crossAxisSpacing: 8,
-                              mainAxisSpacing: 8,
+                              childAspectRatio: 0.56,
+                              crossAxisSpacing: 15,
+                              mainAxisSpacing: 15,
                             ),
                         delegate: SliverChildBuilderDelegate((context, index) {
                           final movie = moviesState.movies[index];
+                          final isFavorite = favorites.any(
+                            (fav) => fav.id == movie.id,
+                          ); // Перевірка, чи в обраному
+
                           return GestureDetector(
                             onTap: () => context.push('/movie/${movie.id}'),
                             child: Column(
@@ -216,10 +222,14 @@ class _MovieListScreenState extends ConsumerState<MovieListScreen> {
                                           shape: BoxShape.circle,
                                         ),
                                         padding: const EdgeInsets.all(4),
-                                        child: const Icon(
+                                        child: Icon(
                                           Icons.star,
                                           size: 16,
-                                          color: Colors.amber,
+                                          color:
+                                              isFavorite
+                                                  ? Colors.amber
+                                                  : Colors
+                                                      .grey, // Зміна кольору
                                         ),
                                       ),
                                     ),
