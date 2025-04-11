@@ -1,5 +1,5 @@
 import '../entities/movie.dart';
 
-abstract class MovieRepository {
-  Future<List<Movie>> getTopRatedMovies();
+mixin MovieRepository {
+  Future<List<Movie>> getTopRatedMovies({int page = 1});
 }

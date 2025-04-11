@@ -71,6 +71,7 @@ class RemoteException implements Exception {
 
   @override
   String toString() {
+    // ignore: lines_longer_than_80_chars
     return 'RemoteException: $message (Status: $statusCode, Details: $errorDetails)';
   }
 }

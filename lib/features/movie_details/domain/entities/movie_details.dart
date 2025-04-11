@@ -1,20 +1,20 @@
-class Movie {
-  Movie({
+class MovieDetails {
+  const MovieDetails({
     required this.id,
     required this.title,
+    required this.overview,
     required this.posterPath,
     required this.voteAverage,
-    required this.overview,
     required this.releaseDate,
-    required this.page,
-    required this.totalPages,
+    required this.runtime,
+    required this.genres,
   });
   final int id;
   final String title;
+  final String overview;
   final String posterPath;
   final double voteAverage;
-  final String overview;
   final String releaseDate;
-  final int page;
-  final int totalPages;
+  final int runtime;
+  final List<String> genres;
 }

@@ -9,7 +9,7 @@ class MovieRepositoryImpl implements MovieRepository {
   final RemoteMovieDataSource _dataSource;
 
   @override
-  Future<List<Movie>> getTopRatedMovies() async {
-    return _dataSource.getTopRatedMovies();
+  Future<List<Movie>> getTopRatedMovies({int page = 1}) async {
+    return _dataSource.getTopRatedMovies(page: page);
   }
 }

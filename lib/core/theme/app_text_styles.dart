@@ -33,6 +33,7 @@ class _DarkTextStyles {
   TextStyle get caption => GoogleFonts.roboto(
     fontSize: 12,
     fontWeight: FontWeight.normal,
+    // ignore: deprecated_member_use
     color: AppColors.dark.text.withOpacity(0.7),
   );
 }
@@ -59,6 +60,7 @@ class _LightTextStyles {
   TextStyle get caption => GoogleFonts.roboto(
     fontSize: 12,
     fontWeight: FontWeight.normal,
+    // ignore: deprecated_member_use
     color: AppColors.light.text.withOpacity(0.7),
   );
 }

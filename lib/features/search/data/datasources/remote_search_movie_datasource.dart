@@ -4,15 +4,18 @@ import '../../../../core/errors/remote_exception.dart';
 import '../../../../core/services/api_service.dart';
 import '../models/movie_model.dart';
 
-class RemoteMovieDataSource {
-  RemoteMovieDataSource(this._apiService);
+class RemoteSearchMovieDataSource {
+  RemoteSearchMovieDataSource(this._apiService);
   final ApiService _apiService;
 
-  Future<List<MovieModel>> getTopRatedMovies({int page = 1}) async {
+  Future<List<MovieModel>> getSearchMovies({
+    int page = 1,
+    String query = '',
+  }) async {
     try {
       final response = await _apiService.dio.get(
-        'movie/top_rated',
-        queryParameters: {'page': page},
+        'search/movie',
+        queryParameters: {'page': page, 'query': query},
       );
       return (response.data['results'] as List)
           .map((json) => MovieModel.fromJson(json))

@@ -7,40 +7,53 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
-  flutter:
-    sdk: flutter
+  # HTTP client
+  dio: ^5.8.0+1
 
-  cupertino_icons: ^1.0.8
-  google_fonts: ^6.2.1 
+  # Image caching
+  cached_network_image: ^3.4.1
+
+  # Local storage
+  shared_preferences: ^2.5.3
+
+  # JSON serialization
+  json_annotation: ^4.9.0
+
+  # Navigation
+  go_router: ^14.8.1
 
   # State management
   flutter_riverpod: ^2.6.1
   hooks_riverpod: ^2.6.1
   flutter_hooks: ^0.21.2
 
-  # Navigation
-  go_router: ^14.8.1
-
-  # HTTP client
-  dio: ^5.8.0+1
-
-  # JSON serialization
-  json_annotation: ^4.9.0
-
-  # Local storage
-  shared_preferences: ^2.5.3
+  # UI & animations
+  loading_indicator: ^3.1.1
+  shimmer: ^3.0.0
+  google_fonts: ^6.2.1
+  intl: ^0.20.2
+  cupertino_icons: ^1.0.8
 
   # Dependency injection
   get_it: ^8.0.3
 
+  # Flutter SDK
+  flutter:
+    sdk: flutter
+
 dev_dependencies:
+  # Testing
   flutter_test:
     sdk: flutter
 
+  # Linting
   flutter_lints: ^5.0.0
 
+  # Code generation
   build_runner: ^2.4.15
   json_serializable: ^6.9.4
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
